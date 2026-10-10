@@ -189,6 +189,14 @@
   .card.hl-card p, .card.hl-card .num-tag { color: #4a4234; }
   .card.dark-card { background: var(--dark); color: var(--on-dark); }
   .card.dark-card p, .card.dark-card .num-tag { color: #bdbdbd; }
+  .link-card { position: relative; cursor: pointer; }
+  .link-card .go {
+    position: absolute; top: 24px; right: 24px; width: 40px; height: 40px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 18px;
+    background: var(--surface); color: var(--text);
+    transition: transform .3s ease, background .3s ease, color .3s ease;
+  }
+  .link-card:hover .go { transform: rotate(45deg); background: var(--blue); color: #fff; }
   .tags { display: flex; gap: 8px; flex-wrap: wrap; }
   .tags span { font-size: 13px; padding: 5px 12px; border-radius: 999px; background: var(--surface); color: var(--text); font-weight: 500; }
 
@@ -405,26 +413,26 @@
     <h2 class="reveal">Loyihalar</h2>
     <p class="sub-h reveal">Ishtirok etgan va ustida ishlayotgan loyihalarim</p>
     <div class="grid-4">
-      <div class="card reveal">
-        <span class="num-tag">(01)</span>
+      <a href="https://rgn.uz/" target="_blank" rel="noopener" class="card link-card reveal">
+        <span class="num-tag">(01)</span><span class="go">↗</span>
         <h3>Registan LC</h3>
         <div class="tags"><span>Videograf</span></div>
-      </div>
-      <div class="card hl-card reveal" style="--d:.1s">
-        <span class="num-tag">(02)</span>
+      </a>
+      <a href="https://rgnschool.uz/" target="_blank" rel="noopener" class="card link-card hl-card reveal" style="--d:.1s">
+        <span class="num-tag">(02)</span><span class="go">↗</span>
         <h3>Registan school</h3>
         <div class="tags"><span>SMM</span><span>Content Maker</span></div>
-      </div>
-      <div class="card reveal" style="--d:.2s">
-        <span class="num-tag">(03)</span>
+      </a>
+      <a href="https://www.instagram.com/cono.gelato.uz/" target="_blank" rel="noopener" class="card link-card reveal" style="--d:.2s">
+        <span class="num-tag">(03)</span><span class="go">↗</span>
         <h3>Cono</h3>
         <div class="tags"><span>Content Maker</span></div>
-      </div>
-      <div class="card dark-card reveal" style="--d:.3s">
-        <span class="num-tag">(04)</span>
+      </a>
+      <a href="https://www.instagram.com/jiddi.uz/" target="_blank" rel="noopener" class="card link-card dark-card reveal" style="--d:.3s">
+        <span class="num-tag">(04)</span><span class="go">↗</span>
         <h3>Jiddi agency</h3>
         <div class="tags"><span>Video operator</span></div>
-      </div>
+      </a>
     </div>
   </section>
 
