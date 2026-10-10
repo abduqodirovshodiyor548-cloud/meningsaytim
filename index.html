@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shodiyor Abduqodirov — SMM menejer</title>
+  <meta name="description" content="Shodiyor Abduqodirov — Registon xususiy maktabida SMM menejer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0b1f3a;
+      --navy-2: #12305a;
+      --black: #0a0a0a;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --light: #f4f6f9;
+      --line: #e3e7ee;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+    /* Navigatsiya */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(8px);
+      color: var(--white);
+    }
+    nav { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .logo { font-weight: 800; font-size: 20px; letter-spacing: 0.5px; }
+    .logo span { color: #5b8def; }
+    .menu { display: flex; gap: 28px; list-style: none; }
+    .menu a { font-size: 15px; opacity: 0.8; transition: opacity .2s; }
+    .menu a:hover { opacity: 1; }
+
+    /* Bosh qism */
+    .hero {
+      background: linear-gradient(135deg, var(--black) 0%, var(--navy) 100%);
+      color: var(--white);
+      padding: 96px 0;
+    }
+    .hero .container { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
+    .badge {
+      display: inline-block; padding: 6px 14px; border: 1px solid rgba(255,255,255,.25);
+      border-radius: 999px; font-size: 13px; margin-bottom: 20px; opacity: .9;
+    }
+    .hero h1 { font-size: 52px; line-height: 1.1; font-weight: 800; margin-bottom: 16px; }
+    .hero .role { font-size: 22px; color: #9db8ec; font-weight: 500; margin-bottom: 20px; }
+    .hero p { font-size: 17px; opacity: .8; max-width: 480px; margin-bottom: 32px; }
+    .btn {
+      display: inline-block; padding: 14px 28px; border-radius: 8px;
+      font-weight: 600; font-size: 15px; transition: transform .2s, background .2s;
+    }
+    .btn-primary { background: var(--white); color: var(--navy); }
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-outline { border: 1px solid rgba(255,255,255,.4); color: var(--white); margin-left: 12px; }
+    .btn-outline:hover { background: rgba(255,255,255,.08); }
+    .photo {
+      width: 100%; max-width: 400px; aspect-ratio: 1; justify-self: end;
+      border-radius: 20px; overflow: hidden;
+      box-shadow: 0 30px 60px rgba(0,0,0,.45);
+      border: 4px solid rgba(255,255,255,.1);
+    }
+    .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Bo'limlar */
+    section { padding: 88px 0; }
+    .section-title { font-size: 34px; font-weight: 800; color: var(--navy); margin-bottom: 12px; }
+    .section-sub { color: var(--gray); margin-bottom: 44px; font-size: 16px; }
+    .alt { background: var(--light); }
+
+    /* Statistika */
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .stat {
+      background: var(--white); border: 1px solid var(--line); border-radius: 14px;
+      padding: 28px; text-align: center;
+    }
+    .stat b { display: block; font-size: 42px; color: var(--navy); font-weight: 800; }
+    .stat span { color: var(--gray); font-size: 15px; }
+    .about-text { font-size: 17px; max-width: 760px; margin-bottom: 40px; color: #222; }
+
+    /* Tajriba */
+    .timeline { border-left: 3px solid var(--navy); padding-left: 28px; max-width: 760px; }
+    .item { position: relative; margin-bottom: 36px; }
+    .item:last-child { margin-bottom: 0; }
+    .item::before {
+      content: ''; position: absolute; left: -37px; top: 6px;
+      width: 15px; height: 15px; border-radius: 50%;
+      background: var(--white); border: 3px solid var(--navy);
+    }
+    .item .date { font-size: 14px; color: var(--gray); font-weight: 500; }
+    .item h3 { font-size: 20px; color: var(--navy); margin: 4px 0; }
+    .item p { color: #333; }
+
+    /* Ko'nikmalar */
+    .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+    .skill {
+      background: var(--white); border: 1px solid var(--line); border-radius: 14px; padding: 26px;
+      transition: border-color .2s, transform .2s;
+    }
+    .skill:hover { border-color: var(--navy); transform: translateY(-3px); }
+    .skill .icon {
+      width: 46px; height: 46px; border-radius: 10px; background: var(--navy); color: var(--white);
+      display: grid; place-items: center; font-weight: 800; font-size: 18px; margin-bottom: 16px;
+    }
+    .skill h3 { font-size: 18px; margin-bottom: 6px; }
+    .skill p { color: var(--gray); font-size: 15px; }
+
+    /* Loyihalar */
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .project {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-2) 100%);
+      color: var(--white); border-radius: 16px; padding: 32px;
+      transition: transform .2s;
+    }
+    .project:hover { transform: translateY(-3px); }
+    .project h3 { font-size: 24px; }
+    .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+    .tags span { font-size: 13px; padding: 5px 12px; border-radius: 999px; background: rgba(255,255,255,.12); }
+
+    /* Aloqa */
+    .contact { background: var(--black); color: var(--white); text-align: center; }
+    .contact .section-title { color: var(--white); }
+    .contact .section-sub { color: #aaa; }
+    .phone { font-size: 32px; font-weight: 700; display: inline-block; margin-bottom: 28px; }
+    footer { background: var(--black); color: #777; text-align: center; padding: 24px 0; font-size: 14px; border-top: 1px solid #222; }
+
+    /* Mobil */
+    @media (max-width: 820px) {
+      .menu { display: none; }
+      .hero { padding: 56px 0; }
+      .hero .container { grid-template-columns: 1fr; gap: 36px; }
+      .photo { justify-self: center; max-width: 300px; order: -1; }
+      .hero h1 { font-size: 36px; }
+      .hero .role { font-size: 19px; }
+      .stats { grid-template-columns: 1fr; }
+      .projects { grid-template-columns: 1fr; }
+      .project { padding: 26px; }
+      .btn-outline { margin-left: 0; margin-top: 12px; }
+      section { padding: 64px 0; }
+      .section-title { font-size: 28px; }
+      .phone { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="#" class="logo">Shodiyor<span>.</span></a>
+      <ul class="menu">
+        <li><a href="#haqida">Men haqimda</a></li>
+        <li><a href="#tajriba">Tajriba</a></li>
+        <li><a href="#konikmalar">Ko'nikmalar</a></li>
+        <li><a href="#loyiha">Loyihalar</a></li>
+        <li><a href="#aloqa">Aloqa</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Bosh qism -->
+  <div class="hero">
+    <div class="container">
+      <div>
+        <div class="badge">Registon xususiy maktabi</div>
+        <h1>Shodiyor Abduqodirov</h1>
+        <div class="role">SMM menejer</div>
+        <p>Ta'lim sohasidagi brendlarni ijtimoiy tarmoqlarda rivojlantiraman: kontent, video va strategiya.</p>
+        <a href="#aloqa" class="btn btn-primary">Bog'lanish</a>
+        <a href="#tajriba" class="btn btn-outline">Tajribam</a>
+      </div>
+      <div class="photo">
+        <img src="rasm.jpg" alt="Shodiyor Abduqodirov">
+      </div>
+    </div>
+  </div>
+
+  <!-- Men haqimda -->
+  <section id="haqida">
+    <div class="container">
+      <h2 class="section-title">Men haqimda</h2>
+      <p class="section-sub">Qisqacha tanishuv</p>
+      <p class="about-text">
+        Assalomu alaykum! Mening ismim Shodiyor Abduqodirov, 23 yoshdaman.
+        Toshkent viloyati Piskent tumanida tug'ilganman. 4 yildan beri Registon xususiy
+        maktabida ishlab kelaman, shundan 2 yildan beri SMM menejer lavozimidaman.
+      </p>
+      <div class="stats">
+        <div class="stat"><b>23</b><span>yosh</span></div>
+        <div class="stat"><b>4+</b><span>yillik ish tajribasi</span></div>
+        <div class="stat"><b>2+</b><span>yil SMM menejer sifatida</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tajriba -->
+  <section id="tajriba" class="alt">
+    <div class="container">
+      <h2 class="section-title">Ish tajribasi</h2>
+      <p class="section-sub">Registon xususiy maktabidagi yo'lim</p>
+      <div class="timeline">
+        <div class="item">
+          <div class="date">2 yildan beri — hozirgacha</div>
+          <h3>SMM menejer</h3>
+          <p>Registon xususiy maktabi. Ijtimoiy tarmoqlarni yuritish, kontent rejalashtirish, video tayyorlash va auditoriya bilan ishlash.</p>
+        </div>
+        <div class="item">
+          <div class="date">4 yil oldin</div>
+          <h3>Registon xususiy maktabiga qo'shildim</h3>
+          <p>Maktab jamoasida ishni boshladim va keyinchalik SMM yo'nalishiga o'tdim.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ko'nikmalar -->
+  <section id="konikmalar">
+    <div class="container">
+      <h2 class="section-title">Ko'nikmalar</h2>
+      <p class="section-sub">Ishimda foydalanadigan vositalar</p>
+      <div class="skills">
+        <div class="skill">
+          <div class="icon">S</div>
+          <h3>SMM</h3>
+          <p>Ijtimoiy tarmoqlarni yuritish, kontent strategiyasi va auditoriyani o'stirish.</p>
+        </div>
+        <div class="skill">
+          <div class="icon">CM</div>
+          <h3>Content Maker</h3>
+          <p>Ijtimoiy tarmoqlar uchun post, video va Reels kontentini yaratish.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Loyihalar -->
+  <section id="loyiha" class="alt">
+    <div class="container">
+      <h2 class="section-title">Loyihalar</h2>
+      <p class="section-sub">Ishtirok etgan va ustida ishlayotgan loyihalarim</p>
+      <div class="projects">
+        <div class="project">
+          <h3>Registan LC</h3>
+          <div class="tags"><span>SMM</span><span>Kontent</span></div>
+        </div>
+        <div class="project">
+          <h3>Registan school</h3>
+          <div class="tags"><span>SMM</span><span>Kontent</span></div>
+        </div>
+        <div class="project">
+          <h3>Cono</h3>
+          <div class="tags"><span>Video operator</span></div>
+        </div>
+        <div class="project">
+          <h3>Jiddi agency</h3>
+          <div class="tags"><span>Video operator</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Aloqa -->
+  <section id="aloqa" class="contact">
+    <div class="container">
+      <h2 class="section-title">Bog'lanish</h2>
+      <p class="section-sub">Hamkorlik yoki savollar bo'lsa, qo'ng'iroq qiling</p>
+      <a href="tel:+998999997310" class="phone">+998 99 999 73 10</a><br>
+      <a href="tel:+998999997310" class="btn btn-primary">Qo'ng'iroq qilish</a>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 Shodiyor Abduqodirov
+  </footer>
+
+</body>
+</html>
