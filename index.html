@@ -151,7 +151,9 @@
   /* Raqamlar qatori */
   .points { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 56px 8px; }
   .points b { display: block; font-size: clamp(32px, 4vw, 48px); font-weight: 500; letter-spacing: -.03em; line-height: 1.1; }
-  .points span { color: var(--muted); font-size: 17px; }
+  .points > div > span { color: var(--muted); font-size: 17px; }
+  .points b { font-size: clamp(44px, 6vw, 72px); }
+  .points b small { font-size: .5em; font-weight: 500; margin-left: 2px; vertical-align: .55em; }
 
   /* Bo'limlar */
   section { padding: 40px 0; scroll-margin-top: 80px; }
@@ -347,8 +349,8 @@
 
   <div class="points">
     <div class="reveal"><b><span data-count="23">23</span></b><span>yosh</span></div>
-    <div class="reveal" style="--d:.1s"><b><span data-count="4">4</span>+</b><span>yillik ish tajribasi</span></div>
-    <div class="reveal" style="--d:.2s"><b><span data-count="2">2</span>+</b><span>yil SMM menejer sifatida</span></div>
+    <div class="reveal" style="--d:.1s"><b><span data-count="4">4</span><small>+</small></b><span>yillik ish tajribasi</span></div>
+    <div class="reveal" style="--d:.2s"><b><span data-count="2">2</span><small>+</small></b><span>yil SMM menejer sifatida</span></div>
     <div class="reveal" style="--d:.3s"><b><span data-count="4">4</span></b><span>loyiha</span></div>
   </div>
 
