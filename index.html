@@ -138,8 +138,19 @@
   .float-3 .dot svg { width: 20px; height: 20px; }
   .float-3 span { font-weight: 500; font-size: 15px; }
 
-  .blob { position: absolute; animation: drift 9s ease-in-out infinite; filter: drop-shadow(0 12px 20px rgba(0,0,0,.15)); }
-  .blob svg { display: block; width: 100%; height: auto; }
+  /* Stikerlar: oq qalin chegara, yengil qiyshayish va soya */
+  .blob {
+    position: absolute; animation: drift 9s ease-in-out infinite;
+    filter:
+      drop-shadow(4px 0 0 #fff) drop-shadow(-4px 0 0 #fff)
+      drop-shadow(0 4px 0 #fff) drop-shadow(0 -4px 0 #fff)
+      drop-shadow(0 10px 14px rgba(0,0,0,.18));
+  }
+  .blob svg { display: block; width: 100%; height: auto; transition: transform .3s ease; }
+  .blob-1 svg { transform: rotate(8deg); }
+  .blob-2 svg { transform: rotate(-12deg); }
+  .hero-stage:hover .blob-1 svg { transform: rotate(-2deg) scale(1.06); }
+  .hero-stage:hover .blob-2 svg { transform: rotate(0deg) scale(1.08); }
   .blob-1 { width: 140px; right: 70px; top: 0; }
   .blob-2 { width: 84px; left: 140px; bottom: 165px; animation-duration: 7s; animation-direction: reverse; }
 
@@ -329,22 +340,22 @@
             <linearGradient id="scr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#2f4fc4"/><stop offset="1" stop-color="#2f855a"/></linearGradient>
             <linearGradient id="base" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e4e6ea"/><stop offset="1" stop-color="#b9bdc4"/></linearGradient>
           </defs>
-          <rect x="18" y="2" width="104" height="70" rx="7" fill="#1d1d1f"/>
+          <rect x="18" y="2" width="104" height="70" rx="7" fill="#1d1d1f" stroke="#111" stroke-width="2"/>
           <rect x="23" y="7" width="94" height="60" rx="3" fill="url(#scr)"/>
           <rect x="31" y="16" width="40" height="6" rx="3" fill="#fff" opacity=".9"/>
           <rect x="31" y="27" width="62" height="4" rx="2" fill="#fff" opacity=".5"/>
           <rect x="31" y="35" width="52" height="4" rx="2" fill="#fff" opacity=".5"/>
           <rect x="31" y="46" width="24" height="12" rx="3" fill="#ecdcc0"/>
           <circle cx="70" cy="4.5" r="1" fill="#555"/>
-          <path d="M4 74h132l-6 10H10z" fill="url(#base)"/>
+          <path d="M4 74h132l-6 10H10z" fill="url(#base)" stroke="#111" stroke-width="2" stroke-linejoin="round"/>
           <rect x="58" y="74" width="24" height="3" rx="1.5" fill="#9ea2a9"/>
         </svg>
       </div>
       <div class="blob blob-2" aria-hidden="true">
         <!-- Kamera -->
         <svg viewBox="0 0 84 64">
-          <rect x="14" y="6" width="18" height="8" rx="2" fill="#3a3a3c"/>
-          <rect x="2" y="12" width="80" height="48" rx="9" fill="#1d1d1f"/>
+          <rect x="14" y="6" width="18" height="8" rx="2" fill="#3a3a3c" stroke="#111" stroke-width="2"/>
+          <rect x="2" y="12" width="80" height="48" rx="9" fill="#1d1d1f" stroke="#111" stroke-width="2"/>
           <rect x="2" y="22" width="80" height="6" fill="#2c2c2e"/>
           <circle cx="44" cy="36" r="19" fill="#3a3a3c"/>
           <circle cx="44" cy="36" r="14" fill="#0f0f10"/>
